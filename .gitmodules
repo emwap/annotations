@@ -1,0 +1,6 @@
+[submodule "feldspar-language"]
+	path = feldspar-language
+	url = ../feldspar-language.git
+[submodule "feldspar-compiler"]
+	path = feldspar-compiler
+	url = ../feldspar-compiler.git
