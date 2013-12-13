@@ -59,6 +59,10 @@ prog4 l = let v = indexed l id
 prog5 l = let v = parallel l id
           in v `append` v
 
+prog6 v = zipWith (+) v (tail v)
+
+prog7 v = parallel (length v) $ \i -> v ! (i `mod` (length v `div` 2))
+
 causalMap :: Syntax a => (Vector a -> a) -> Vector a -> Vector a
 causalMap f = map (f . reverse) . inits
 
@@ -112,6 +116,23 @@ chunk c f v = flatten $ map f $ split v
     flatten arr = indexed l ixf
       where
         ixf i = arr ! y ! x
+          where
+            y = i `div` c
+            x = i `mod` c
+
+chunk2 :: (Syntax a, Syntax b)
+      => Data Length -> (Vector a -> Vector b) -> Vector a -> Vector b
+chunk2 c f v = flatten $ map f $ split v
+  where
+    l = length v
+    r = l `div` c
+
+    split w = indexed r $ \i ->
+                indexed c $ \j -> w ! (c*i+j)
+
+    flatten arr = indexed l ixf
+      where
+        ixf i = sugar $ (desugar arr) ! y ! x
           where
             y = i `div` c
             x = i `mod` c
