@@ -24,6 +24,8 @@ library
   -- other-extensions:    
   build-depends:
       base >=4.6 && <4.7
+    , groom
+    , containers
     , syntactic
     , feldspar-language
     , feldspar-compiler
