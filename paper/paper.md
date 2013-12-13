@@ -25,7 +25,7 @@ biblio-files:
 header-includes:
   - \usepackage[noabbrev]{cleveref}
   - \input{latex/haskell_listings}
-...
+---
 
 # Introduction
 
