@@ -11,7 +11,7 @@ The paper is written in markdown and converted to latex or pdf using `pandoc`.
 Please make sure you have `pandoc` and `pandoc-citeproc` installed.
 
 ```
-cabal install pandoc pandoc-citeproc`
+cabal install pandoc pandoc-citeproc
 ```
 
 See the `Makefile` for details on converting the paper.
